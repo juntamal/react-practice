@@ -31,3 +31,15 @@
     transform: rotate(360deg);
   }
 }
+
+.water {
+  background-color: blue;
+}
+
+.steam {
+  background-color: gray;
+}
+
+.ice {
+  background-color: white;
+}
