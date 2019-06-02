@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import Ajax from './components/Ajax';
+import Giphy from './components/Giphy';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Ajax />, document.getElementById('root'));
+ReactDOM.render(<Giphy />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
