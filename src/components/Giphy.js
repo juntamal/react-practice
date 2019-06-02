@@ -15,7 +15,7 @@ export default class Giphy extends Component {
   getUrl(searchParams) {
     const search = searchParams;
     const key = config.apiKey;
-    const limit = 10;
+    const limit = 30;
     const url = `https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${key}&limit=${limit}`
 
     return url;
@@ -38,13 +38,13 @@ export default class Giphy extends Component {
 
     const imageList = list.map((url, index) => {
       return (
-        <li key={index}>
-          <img src={url} />
+        <li key={index} className="item">
+          <img src={url} className="image" />
         </li>
       );
     });
 
-    return <ul>{imageList}</ul>
+    return <ul className="list">{imageList}</ul>
   }
 
   render() {
