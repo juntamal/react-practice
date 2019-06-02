@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import config from '../config/development';
 import axios from 'axios';
 import Search from './Giphy/Search';
 
@@ -13,7 +14,7 @@ export default class Giphy extends Component {
 
   getUrl(searchParams) {
     const search = searchParams;
-    const key = "test";
+    const key = config.apiKey;
     const limit = 10;
     const url = `https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${key}&limit=${limit}`
 
