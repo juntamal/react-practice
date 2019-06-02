@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Search from './Giphy/Search';
 
 export default class Giphy extends Component {
   constructor(props) {
@@ -10,18 +11,17 @@ export default class Giphy extends Component {
     };
   }
 
-  getUrl() {
-    const search = "fox";
+  getUrl(searchParams) {
+    const search = searchParams;
     const key = "test";
     const limit = 10;
-
     const url = `https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${key}&limit=${limit}`
 
     return url;
   }
 
-  getGif = () => {
-    const url = this.getUrl();
+  getGif = (searchParams) => {
+    const url = this.getUrl(searchParams);
 
     axios.get(url).then(res => {
       const data = res.data.data;
@@ -34,9 +34,10 @@ export default class Giphy extends Component {
     if (list.length === 0) {
       return;
     }
-    const imageList = list.map(url => {
+
+    const imageList = list.map((url, index) => {
       return (
-        <li>
+        <li key={index}>
           <img src={url} />
         </li>
       );
@@ -48,8 +49,8 @@ export default class Giphy extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.getGif} type="button">search</button>
-        <div>{this.renderImageList(this.state.gifUrlList)}</div>
+        <Search getGif={this.getGif}/>
+        {this.renderImageList(this.state.gifUrlList)}
       </div>
     );
   }
