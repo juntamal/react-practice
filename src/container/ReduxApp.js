@@ -1,15 +1,5 @@
-import React from 'react';
+import ReduxApp from '../components/ReduxApp';
 import { connect } from 'react-redux';
-
-const App = ({ number, plus, minus }) => {
-  return (
-    <div>
-      <h2>{number}</h2>
-      <button onClick={() => {plus(10);}}>+10</button>
-      <button onClick={() => {minus(10);}}>-10</button>
-    </div>
-  );
-}
 
 const mapStateToProps = (state) => {
   return {
@@ -28,4 +18,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxApp);
