@@ -1,20 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import reducer from './components/ReduxPractice/reducer';
+import rootReducer from './reducers';
 import { Provider } from 'react-redux';
-import App from './components/ReduxPractice/App';
+import ReduxApp from './container/ReduxApp';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(reducer);
-
-store.subscribe(() => {
-  console.log(store.getState());
-});
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ReduxApp />
   </Provider>,
   document.getElementById('root')
 );
