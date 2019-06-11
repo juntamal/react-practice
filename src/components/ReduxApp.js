@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReduxApp = ({ number, day, title, plus, minus, asyncMinus }) => {
+const ReduxApp = ({ number, day, title, plus, minus, asyncMinus, getJson }) => {
   return (
     <div>
       <h2>{number}</h2>
@@ -9,6 +9,7 @@ const ReduxApp = ({ number, day, title, plus, minus, asyncMinus }) => {
       <button onClick={() => {plus(10);}}>+10</button>
       <button onClick={() => {minus(10);}}>-10</button>
       <button onClick={() => {asyncMinus(10);}}>-10</button>
+      <button onClick={() => {getJson();}}>getJson</button>
     </div>
   );
 }
