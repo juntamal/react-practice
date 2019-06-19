@@ -1,4 +1,5 @@
 import axios from 'axios';
+import giphyApi from '../APIs/giphyAPI';
 
 export const plus = num => {
   return {type: 'PLUS', payload: {num: num}};
@@ -27,6 +28,30 @@ export const getJson = () => {
 
     axios.get(url).then(res => {
       dispatch(changeTitle(res.data.foxes[0].name));
+    });
+  };
+};
+
+const startRquest = () => {
+  return {
+    type: "START_REQUEST"
+  };
+};
+
+const receiveData = data => {
+  return {
+    type: 'RECEIVE_DATA',
+    payload: data,
+  };
+};
+
+export const getUrls = word => {
+  return dispatch => {
+    dispatch(startRquest());
+    giphyApi(word).then(res => {
+      const data = res.data.data;
+      const imageUrlLists = data.map(item => item.images.downsized.url);
+      dispatch(receiveData(imageUrlLists));
     });
   };
 };

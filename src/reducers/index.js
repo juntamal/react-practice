@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 
-import number from './number';
-import day from './day';
-import title from './title';
+import imageUrls from './imageUrls';
+import buttonText from './buttonText';
 
 export default combineReducers({
-  number,
-  title,
-  day,
+  imageUrls,
+  buttonText,
 });
