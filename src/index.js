@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
-import ReduxApp from './container/ReduxApp';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
+import "./App.css";
 
 const middleWares = [thunk];
 
@@ -13,7 +14,7 @@ const store = createStore(rootReducer, applyMiddleware(...middleWares));
 
 ReactDOM.render(
   <Provider store={store}>
-    <ReduxApp />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
